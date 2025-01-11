@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"exactOptionalPropertyTypes": true,
+		"isolatedModules": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "dist",
+		"skipLibCheck": true,
+		"strict": true
+	},
+	"extends": "@tsconfig/node-lts/tsconfig.json",
+	"include": ["src/**/*.ts"]
+}
