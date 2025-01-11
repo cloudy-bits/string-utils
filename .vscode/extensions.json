@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"ms-vscode.vscode-typescript-next",
+		"firsttris.vscode-jest-runner",
+		"esbenp.prettier-vscode",
+		"redhat.vscode-yaml"
+	]
+}
