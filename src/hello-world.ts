@@ -1,4 +1,4 @@
 export const helloWorld = (name?: string): string => {
-	const trimmedName = name?.trim();
-	return `Hello, ${trimmedName && trimmedName.length > 0 ? trimmedName : "World"}!`;
+	const trimmedName = name?.trim() ?? "";
+	return `Hello, ${trimmedName.length > 0 ? trimmedName : "World"}!`;
 };
