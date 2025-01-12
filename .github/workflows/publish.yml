@@ -13,6 +13,7 @@ on:
 
 jobs:
     publish:
+        if: github.ref_type == 'branch' && github.ref_name == 'main'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -21,7 +22,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
 
-            - name: Clean Install
+            - name: Clean install
               run: |
                   npm clean-install
 
@@ -41,7 +42,27 @@ jobs:
               run: |
                   npm test
 
-            - uses: JS-DevTools/npm-publish@v3
+            - name: Get current version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+            - name: Echo
+              env:
+                  CURRENT_VERSION: ${{ steps.package-version.outputs.version }}
+              run: |
+                  echo "version: $CURRENT_VERSION"
+
+            - name: Bump version and push tag
+              uses: laputansoft/github-tag-action@v4.6
               with:
-                  access: public
-                  token: ${{ secrets.NPM_TOKEN }}
+                  default_bump: ${{ inputs.update-type }}
+                  dry_run: true
+                  github_token: ${{ secrets.github-token }}
+                  release_branches: main
+                  tag: ${{ steps.package-version.outputs.version }}
+
+            # - name: Publish to npm
+            #   uses: JS-DevTools/npm-publish@v3
+            #   with:
+            #       access: public
+            #       token: ${{ secrets.NPM_TOKEN }}
