@@ -47,6 +47,7 @@ jobs:
               uses: martinbeentjes/npm-get-version-action@v1.3.1
 
             - name: Bump version and push tag
+              id: bump-and-tag
               uses: laputansoft/github-tag-action@v4.6
               with:
                   default_bump: ${{ inputs.update-type }}
@@ -57,13 +58,13 @@ jobs:
 
             - name: Echo new tag
               env:
-                  NEW_TAG: ${{ steps.package-version.outputs.new_tag }}
+                  NEW_TAG: ${{ steps.bump-and-tag.outputs.new_tag }}
               run: |
                   echo "new tag: $NEW_TAG"
 
             - name: Echo latest hash
               env:
-                  LATEST_HASH: ${{ steps.package-version.outputs.latest_hash }}
+                  LATEST_HASH: ${{ steps.bump-and-tag.outputs.latest_hash }}
               run: |
                   echo "latest hash: $LATEST_HASH"
 
