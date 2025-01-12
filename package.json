@@ -1,5 +1,5 @@
 {
-	"name": "@cloudybits/string-utils",
+	"name": "@cloudy-bits/string-utils",
 	"version": "1.0.0",
 	"description": "Operations on strings that handle null and undefined",
 	"main": "dist/index.js",
