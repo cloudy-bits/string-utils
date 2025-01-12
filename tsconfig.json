@@ -3,6 +3,8 @@
 		"allowUnreachableCode": false,
 		"allowUnusedLabels": false,
 		"checkJs": true,
+		"declaration": true,
+		"declarationMap": true,
 		"esModuleInterop": true,
 		"exactOptionalPropertyTypes": true,
 		"isolatedModules": true,
