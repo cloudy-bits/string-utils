@@ -18,7 +18,6 @@
 		"lint": "eslint .",
 		"lint-fix": "eslint --fix .",
 		"prepare": "husky",
-		"prepublish": "npm run build",
 		"test": "jest"
 	},
 	"repository": {

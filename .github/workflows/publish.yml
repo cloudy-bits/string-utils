@@ -48,12 +48,14 @@ jobs:
 
             - name: Bump version and push tag
               id: bump-and-tag
+              env:
+                  GITHUB_REF: refs/heads/main
               uses: laputansoft/github-tag-action@v4.6
               with:
                   default_bump: ${{ inputs.update-type }}
                   dry_run: true
                   github_token: ${{ secrets.github-token }}
-                  release_branches: .*
+                  release_branches: main
                   tag: ${{ steps.package-version.outputs.current-version }}
 
             - name: Echo new tag
