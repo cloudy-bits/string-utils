@@ -1,9 +1,15 @@
 name: Publish
 
 on:
-    push:
-        branches:
-            - main
+    workflow_dispatch:
+        inputs:
+            update-type:
+                type: choice
+                description: Update Type
+                options:
+                    - patch
+                    - minor
+                    - major
 
 jobs:
     publish:
